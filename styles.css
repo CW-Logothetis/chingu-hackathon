@@ -1,0 +1,14 @@
+container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+div {
+    margin: 7px 0;
+}
+
+span {
+    font-weight: 700;
+    text-align: right;
+}

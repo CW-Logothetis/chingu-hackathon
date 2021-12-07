@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <h2> Enter Santa's House Target then press Start</h2>
+        
+    <label for"santa-house-target">Santa's House Target for one night</label>
+    <input id="santa-home-target" type="text">
+    <div>
+        <button id="btn-start">Start</button>
+        <button id="btn-stop">Stop (actually Pause; can click start again)</button>
+    </div>
+    
+    <container>
+       
+        <div>Nightly calorie target: <span>5,000</span></div> 
+        <div>Total nightly calories so far: <span id="santa-calories"></span></div> 
+        <div>Total # homes left milk & cookies: <span id="total-milk-cookies"></span></div> 
+        <div>Total # homes left carrots & tea: <span id="total-carrots-tea"></span></div> 
+        <div>Current delivery speed (homes/second): <span id="homes-per-second"></span></div> 
+        <div>Homes visited: <span id="homes-visited"></span></div> 
+        <div>Homes remaining: <span id="homes-remaining"></span></div> 
+        <div>Total Time in secs (at end of simulation): <span id="time-ms"></span></div>
+    </container>
+    
+   
+    
+    <script src="index.js"></script>
+</body>
+</html>
