@@ -1,0 +1,28 @@
+{
+  "name": "hackathon_2021_chingu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss css/styles.css -o build/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CW-Logothetis/chingu-hackathon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CW-Logothetis/chingu-hackathon/issues"
+  },
+  "homepage": "https://github.com/CW-Logothetis/chingu-hackathon#readme",
+  "dependencies": {
+    "postcss-cli": "^9.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^3.0.0"
+  }
+}
