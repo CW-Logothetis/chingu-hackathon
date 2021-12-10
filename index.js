@@ -1,3 +1,8 @@
+// --- Display Screen Width --- //
+const displayWidth = document.getElementById("width")
+displayWidth.textContent = `w: ${window.innerWidth} + h: ${window.innerHeight}`
+console.log(window.innerWidth)
+
 // --- BUTTONS --- //
 const startBtn = document.getElementById("btn-start")
 const stopBtn = document.getElementById("btn-stop")
@@ -14,8 +19,8 @@ const displayTimeMs = document.getElementById("time-ms")
 
 // --- Variables --- //
 
-const milkCookies = 75
-const carrotsTea = -50
+const milkCookies = 15
+const carrotsTea = -10
 let houseMilkCookies = 0
 let houseCarrotsTea = 0
 let totalMilkCookiesHouses = 0
@@ -66,26 +71,25 @@ function runSimulation() {
     }
 
     // for homesVisitedEvery5or10secs, accumulate totals for m/c and c/t
-    const accumulateMilkCookies = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0)
-    const accumulateCarrotsTea = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0)
-    let MilkCookiesPerSec = accumulateMilkCookies(homesVisitedEvery5or10secs, 1)
-    let CarrotsTeaPerSec = accumulateCarrotsTea(homesVisitedEvery5or10secs, 2)
+    const accumulateFoodDrink = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0)
+        let MilkCookiesPerSec = accumulateFoodDrink(homesVisitedEvery5or10secs, 1)
+        let CarrotsTeaPerSec = accumulateFoodDrink(homesVisitedEvery5or10secs, 2)
 
 
-    // For every 1, add 75 calories
+    // For every 1, add 15 calories
     houseMilkCookies = MilkCookiesPerSec * milkCookies
-    // For every 2, subtract 50 from calories
+    // For every 2, subtract 10 from calories
     houseCarrotsTea = CarrotsTeaPerSec * carrotsTea
 
     // recalcualte total calories
     santaCalories += (houseMilkCookies + houseCarrotsTea)
 
-   // tot up total houses leave milk/cookies or carrot/tea
-   totalMilkCookiesHouses += MilkCookiesPerSec
-   totalCarrotsTeaHouses += CarrotsTeaPerSec
+    // tot up total houses leave milk/cookies or carrot/tea
+    totalMilkCookiesHouses += MilkCookiesPerSec
+    totalCarrotsTeaHouses += CarrotsTeaPerSec
     
-    // when he gets to 1,000,000, show how many seconds passed
-    // add 1000ms to timeMs
+    // when he gets to his target, show how many seconds passed
+    // add 1s to timeMs
     timeMs += 1
 
     // add 10 or 5 to houses visited total
@@ -131,7 +135,8 @@ function runSimulation() {
         clearInterval(timer)
     }
     
-} //end to runSimulation
+} //end of runSimulation fn
+
 
 // Dashboard updates once per second. 
 
@@ -141,10 +146,8 @@ startBtn.addEventListener('click', function() {
     timer = setInterval(runSimulation, 1000)
 })
 
-// stop - will 'pause'. When press start again it should pick up where left off.
+// clearInterval will in fact 'pause' the simulation. When press start again it should pick up where left off.
 
 stopBtn.addEventListener("click", function() {
     clearInterval(timer)
 })
-
-// At the end of the simulation you'll need to display the total time it took him to complete his deliveries.
